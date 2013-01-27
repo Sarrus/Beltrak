@@ -29,6 +29,7 @@ void setup() {
   pinMode(throttle, OUTPUT); //Initiates Motor Channel pin
   pinMode(brake, OUTPUT); //Initiates Brake Channel pin
   pinMode(forBac, OUTPUT); //initiates the direction pin
+  pinMode(A0, INPUT);//initiates enter button
   digitalWrite(brake, LOW); //disengage breaks
   
   lcd.begin( 16, 2 ); //set the grid
@@ -41,7 +42,7 @@ void setup() {
 
 void loop()
 {
-  if(speedIs == maxSpeed && state == 1)
+  if(digitalRead(A0) == HIGH && state == 1)
   {
     state = 2;
     digitalWrite(forBac, HIGH); //sets to forward
@@ -49,7 +50,7 @@ void loop()
     lcd.print( "Going Forward   " );
   }
   
-  else if (speedIs == 0 && state == 2)
+  else if (digitalRead(A0) == HIGH && state == 2)
   {
     state = 3;
     digitalWrite(forBac, LOW); //sets to backwards
@@ -57,7 +58,7 @@ void loop()
     lcd.print( "Going Backwards " );
   }
   
-  else if (speedIs == maxSpeed && state == 3)
+  else if (digitalRead(A0) == HIGH && state == 3)
   {
     state = 4;
     digitalWrite(forBac, LOW); //sets to backwards
@@ -65,7 +66,7 @@ void loop()
     lcd.print( "Going Backwards " );
   }
   
-  else if (speedIs == 0 && state == 4)
+  else if (digitalRead(A0) == HIGH && state == 4)
   {
     state = 1;
     digitalWrite(forBac, HIGH); //sets to forward
@@ -112,4 +113,8 @@ void loop()
   lcd.print( pPD ); //the percentage of the maximum P.D.
   lcd.print( "%   " ); //print a % sign
   delay(25);
+  
+  while(digitalRead(A0) == HIGH)
+    delay(25);
+    
 }
