@@ -42,7 +42,7 @@ void setup() {
 
 void loop()
 {
-  if(digitalRead(A0) == HIGH && state == 1)
+  if(analogRead(A0) == 0 && state == 1)
   {
     state = 2;
     digitalWrite(forBac, HIGH); //sets to forward
@@ -50,7 +50,7 @@ void loop()
     lcd.print( "Going Forward   " );
   }
   
-  else if (digitalRead(A0) == HIGH && state == 2)
+  else if (analogRead(A0) == 0 && state == 2)
   {
     state = 3;
     digitalWrite(forBac, LOW); //sets to backwards
@@ -58,7 +58,7 @@ void loop()
     lcd.print( "Going Backwards " );
   }
   
-  else if (digitalRead(A0) == HIGH && state == 3)
+  else if (analogRead(A0) == 0 && state == 3)
   {
     state = 4;
     digitalWrite(forBac, LOW); //sets to backwards
@@ -66,7 +66,7 @@ void loop()
     lcd.print( "Going Backwards " );
   }
   
-  else if (digitalRead(A0) == HIGH && state == 4)
+  else if (analogRead(A0) == 0 && state == 4)
   {
     state = 1;
     digitalWrite(forBac, HIGH); //sets to forward
@@ -114,7 +114,7 @@ void loop()
   lcd.print( "%   " ); //print a % sign
   delay(25);
   
-  while(digitalRead(A0) == HIGH)
+  while(analogRead(A0) == 0)
     delay(25);
     
 }
