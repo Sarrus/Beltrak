@@ -23,6 +23,10 @@ Programing started: 02/02/2013 at 14:08
   //train control variables
     float PPD; //Percentage Potential Difference -- what the board multiplies the maximum voltage by, this controls the speed of the train with 100 as the maximum and 0 for stop (PPD does not control direction)
     boolean reverser; //controls the direction of the train, when TRUE the train is reversed
+    
+  //track control variables
+    boolean pointState[10]; //this says the curent state of the points with FALSE for converge and TRUE for diverge
+    boolean pointSwitch[10]; //this holds the desired state of the points with FALSE for converge and TRUE for diverge
  
   //pin number constants
     #define pinPD 3 //the pin number for the Potential Diference output
@@ -81,6 +85,13 @@ void setup()
     
   //initialise virtual sensors
     VS[4] = true;
+    
+  //initialise points
+    for(int i=0; i<10; i++)
+    {
+      pointState[i] = true;
+      pointSwitch[i] = false;
+    }
 }
 
 void loop()
