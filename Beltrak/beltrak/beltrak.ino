@@ -182,6 +182,16 @@ these three are repeated endlessly untill power off */
             butonOut = downOut;
           }
           
+          else if(buttonVoltage >= (leftADC - ADCsensitivity) && buttonVoltage <= (leftADC + ADCsensitivity))
+          {
+            butonOut = leftOut;
+          }
+          
+          else if(buttonVoltage >= (selectADC - ADCsensitivity) && buttonVoltage <= (selectADC + ADCsensitivity))
+          {
+            butonOut = selectOut;
+          }
+          
           else
           {
             butonOut = noneOut;
@@ -208,6 +218,18 @@ these three are repeated endlessly untill power off */
             case downOut:
             {
               lcd.print("Down            ");
+              break;
+            }
+            
+            case leftOut:
+            {
+              lcd.print("Left            ");
+              break;
+            }
+            
+            case selectOut:
+            {
+              lcd.print("Select          ");
               break;
             }
             
