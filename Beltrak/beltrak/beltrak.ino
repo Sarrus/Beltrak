@@ -45,6 +45,13 @@ Programing started: 02/02/2013 at 14:08
 void setup()
 {
   
+  //initialise the lcd screen with rows and columns
+    lcd.begin( 16, 2 );
+      
+  //print the loading screen
+    lcd.setCursor( 0, 0 );
+    lcd.print( "Loading..." );
+  
   //initialise global variables
     PPD = 0; //full stop
     reverser = false; //the train will travel forward
@@ -65,7 +72,7 @@ void setup()
     met = false;
     
   //initialise virtual sensors
-  VS[4] = true;
+    VS[4] = true;
 }
 
 void loop()
@@ -82,6 +89,9 @@ section 3: variables from section 2 are checked and the points are ajusted if ne
 these three are repeated endlessly untill power off */
 
 //section 1: read user input and output display
+    //print a welcome message
+      lcd.setCursor( 0, 0 );
+      lcd.print( "Beltrak 1.0" );
 
 //section 2: check position and instructions
   /* section 2 is devided into two parts, part one checks if the given condition is met, part two carries out an instruction and moves
