@@ -36,6 +36,11 @@ Programing started: 02/02/2013 at 14:08
     int instPos; //the position in the instructions, when a condition is met and a state is changed this incriments, when instSet changesm, this becomes 0
     boolean met; //set to true of a condition is met, the state is then changed.
     
+  //timing variable
+    /*when condition W is in force this is incrimented every iteration of loop untill it meets the given value at which point it
+    is reset and met is set to true*/
+    int timer;
+    
   //virtual sensors
     /*these are variables that are used to test the program before sensors are intoduced true means HIGH false means LOW, !remember
     to change these in the code when introducing sensors!*/
@@ -61,8 +66,8 @@ void setup()
     pinMode(pinDIR, OUTPUT); //instruct the board to output to the direction pin
     
   //initialise the switching instructions
-    inst[0][0][0] = 'B'; //in block
-    inst[0][0][1] = '4'; //4
+    inst[0][0][0] = 'W'; //in block
+    inst[0][0][1] = '9'; //4
     inst[0][0][2] = 'S'; //set speed to
     inst[0][0][3] = '2'; //1
     
@@ -70,6 +75,9 @@ void setup()
     instSet = 0;
     instPos = 0;
     met = false;
+    
+  //initialise the timer
+    timer = 0;  
     
   //initialise virtual sensors
     VS[4] = true;
@@ -101,9 +109,9 @@ these three are repeated endlessly untill power off */
     //section 2.1
       switch(inst[instSet][instPos][0]) //this reads position 0 of an instruction set, to see what the condition is
       {
-        case 'B':
+        case 'B': //meet when sensor x goes HIGH
         {
-          Serial.println("state is B!"); //this tells us that the board has red state B
+          Serial.println("state is B!"); //this tells us that the board has read state B
           
           if(VS[(inst[instSet][instPos][1]) - 48] == true) //this reads the virtual sensor dictated by position 1
           {
@@ -111,6 +119,19 @@ these three are repeated endlessly untill power off */
             met = true; //the condition is met so this goes true
           }
           
+          break;
+        }
+        case 'W': //wait for x miliseconds then meet
+        {
+          Serial.println("state is W!"); //this tells us that the board has read state W
+          if (timer > ((inst[instSet][instPos][1]) - 48) * 100) //checks if the timer has exceded the stated time in multiples of 100
+          {
+            met = true; //the condition has been met
+          }
+          else
+          {
+            timer++; //incriment timer
+          }
           break;
         }
       }
@@ -162,7 +183,7 @@ these three are repeated endlessly untill power off */
           }
         }
         
-        
+        timer = 0; //resets the timer to be used by a diferent call of W
         met = false; //this prevents the instruction from being run twice
         //instPos++; //this moves to the next instruction set, it is commented out because there is only one instruction so far
       }
@@ -181,7 +202,8 @@ these three are repeated endlessly untill power off */
       digitalWrite(pinDIR, LOW);
     }
     
-  delay(1); //protective delay to be used whenever outputing serial information
+  Serial.println(timer);  
+  delay(1); //protective delay to prevent over running the serial buffer and used to time iterations
 }
 
 
