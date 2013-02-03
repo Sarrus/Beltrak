@@ -36,8 +36,8 @@ void setup()
     reverser = false; //the train will travel forward
     
   //initialise pins
-    pinMode(pinPD, OUTPUT);
-    pinMode(pinDIR, OUTPUT);
+    pinMode(pinPD, OUTPUT); //instruct the board to output to the PD pin
+    pinMode(pinDIR, OUTPUT); //instruct the board to output to the direction pin
 }
 
 void loop()
