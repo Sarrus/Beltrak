@@ -72,8 +72,8 @@ void setup()
   //initialise the switching instructions
     inst[0][0][0] = 'W'; //in block
     inst[0][0][1] = '9'; //4
-    inst[0][0][2] = 'S'; //set speed to
-    inst[0][0][3] = '2'; //1
+    inst[0][0][2] = 'C'; //set speed to
+    inst[0][0][3] = '9'; //1
     
   //initialise array positions
     instSet = 0;
@@ -194,14 +194,42 @@ these three are repeated endlessly untill power off */
             }
             break;
           }
+          
+          case 'C':
+          {
+            pointSwitch[inst[instSet][instPos][3] - 48] = false; //instructs the board to converge the given points
+            Serial.println("converge");
+            //delay(1000);
+            break;
+          }
+          
+          case 'D':
+          {
+            pointSwitch[inst[instSet][instPos][3] - 48] = true; //instructs the board to diverge the given points
+            Serial.println("diverge");
+            //delay(1000);
+            break;
+          }
         }
         
         timer = 0; //resets the timer to be used by a diferent call of W
         met = false; //this prevents the instruction from being run twice
         //instPos++; //this moves to the next instruction set, it is commented out because there is only one instruction so far
+        for(int i = 0; i < 10; i++)
+        {
+          Serial.print(i);
+          Serial.print(":");
+          Serial.println(pointSwitch[i]);
+        }
+        
+        delay(10000);
       }
 
 //section 3: output to track
+
+  //set the points
+  
+  
   //apply the PPD to the train
     analogWrite(pinPD, int((PPD / 100) * 255));
     
