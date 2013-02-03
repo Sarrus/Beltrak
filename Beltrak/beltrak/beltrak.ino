@@ -31,6 +31,7 @@ Programing started: 02/02/2013 at 14:08
   //pin number constants
     #define pinPD 3 //the pin number for the Potential Diference output
     #define pinDIR 12 //the pin number of the direction pin
+    #define pinButtons A0 //the button input pin
     
   //the instruction array
     char inst[5][5][5]; //array containing the switching instructions
@@ -55,6 +56,32 @@ Programing started: 02/02/2013 at 14:08
     instructions and the UI is locked*/
     boolean inTransit;
     
+  //button voltages
+    /*these are the ADC readings taken on A0 and the button presses they represent*/
+    #define rightADC 0
+    #define upADC 145
+    #define downADC 329
+    #define leftADC 505
+    #define selectADC 741
+  
+  //button voltage sensitivity  
+    #define ADCsensitivity 10
+    
+  //button output numbers
+    /*to make the output from the buttons easear to understand these are used in place of the numbers representing the button output*/
+    int butonOut; //the place where these numbers are set
+    #define noneOut 0
+    #define rightOut 1
+    #define upOut 2
+    #define downOut 3
+    #define leftOut 4
+    #define selectOut 5
+    
+  //anti-multipress boolean
+    /*to prevent the board from reading a button as pressed multiple times the board sets this to true when it responds to a press
+    it will then not respond again untill this is set to false by the board detecting that no button is pressed*/
+    boolean buttonCaptured;
+    
 
 void setup()
 {
@@ -73,6 +100,8 @@ void setup()
   //initialise pins
     pinMode(pinPD, OUTPUT); //instruct the board to output to the PD pin
     pinMode(pinDIR, OUTPUT); //instruct the board to output to the direction pin
+    pinMode(pinButtons, INPUT ); //instruct the board to read from the button pin
+    digitalWrite(pinButtons, LOW); //make sure that the board doesent pass voltage to the button pin
     
   //initialise the switching instructions
     inst[0][0][0] = 'W'; //wait
@@ -102,6 +131,10 @@ void setup()
     
   //initialise transition boolean
     inTransit = true;
+    
+  //initialises the anti-multipress boolean
+   /*this is set to true so that if a button is stuck down when the board turns on it is not registered*/
+   buttonCaptured = true;
 }
 
 void loop()
@@ -126,8 +159,65 @@ these three are repeated endlessly untill power off */
       }
       else
       {
-        lcd.setCursor( 0, 0 );
-        lcd.print( "Beltrak 1.0" );
+        /*if the train is not in transit then we execute three consecutive steps, in step one the program reads A0 to see if any butons
+        are pressed, and sets the value of buttonOut to match. in step two this value is used to query the menu structure array
+        and that is then displayed on the screen, finaly in step 3 we check to see if the enter button has been pressed, if it has we
+        execute the instructions apropriate to the currently selected menu option*/
+        
+        //section 1.1
+        
+        unsigned int buttonVoltage = analogRead(pinButtons);
+          if(buttonVoltage < (rightADC + ADCsensitivity))
+          {
+            butonOut = rightOut;
+          }
+          
+          else if(buttonVoltage >= (upADC - ADCsensitivity) && buttonVoltage <= (upADC + ADCsensitivity))
+          {
+            butonOut = upOut;
+          }
+          
+          else if(buttonVoltage >= (downADC - ADCsensitivity) && buttonVoltage <= (downADC + ADCsensitivity))
+          {
+            butonOut = downOut;
+          }
+          
+          else
+          {
+            butonOut = noneOut;
+          }
+        
+        
+        //section 1.2
+          lcd.setCursor( 0, 0 );
+          
+          switch(butonOut)
+          {
+            case rightOut:
+            {
+              lcd.print("Right           ");
+              break;
+            }
+            
+            case upOut:
+            {
+              lcd.print("Up              ");
+              break;
+            }
+            
+            case downOut:
+            {
+              lcd.print("Down            ");
+              break;
+            }
+            
+            case noneOut:
+            {
+              lcd.print("Beltrak 1.0     ");
+              break;
+            }
+          }
+        
       }
 
 //section 2: check position and instructions
