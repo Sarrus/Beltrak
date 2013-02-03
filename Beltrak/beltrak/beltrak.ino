@@ -27,6 +27,13 @@ Programing started: 02/02/2013 at 14:08
   //pin number constants
     #define pinPD 3 //the pin number for the Potential Diference output
     #define pinDIR 12 //the pin number of the direction pin
+    
+  //the instruction array
+    char inst[5][5][5]; //array containing the switching instructions
+    
+  //the position in the instruction array
+    int instSet; //the set of instructions to be folowed, eg. go to hawkhaven, this is set by the user through the menus
+    int instPos; //the position in the instructions, when a condition is met and a state is changed this incriments, when instSet changesm, this becomes 0
 
 void setup()
 {
@@ -38,6 +45,16 @@ void setup()
   //initialise pins
     pinMode(pinPD, OUTPUT); //instruct the board to output to the PD pin
     pinMode(pinDIR, OUTPUT); //instruct the board to output to the direction pin
+    
+  //initialise the switching instructions
+    inst[0][0][0] = 'B'; //in block
+    inst[0][0][1] = '4'; //4
+    inst[0][0][2] = 'S'; //set speed to
+    inst[0][0][3] = '1'; //1
+    
+  //initialise array positions
+    instSet = 0;
+    instPos = 0;
 }
 
 void loop()
