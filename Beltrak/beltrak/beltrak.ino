@@ -88,7 +88,7 @@ these three are repeated endlessly untill power off */
   to the next condition if it is, when a condition is met, the variable 'met' is set to true, section two is only run if met is true
   it sets met to false once it has been run*/
   
-    //section 1
+    //section 2.1
       switch(inst[instSet][instPos][0]) //this reads position 0 of an instruction set, to see what the condition is
       {
         case 'B':
@@ -105,7 +105,7 @@ these three are repeated endlessly untill power off */
         }
       }
       
-    //section 2
+    //section 2.2
       if(met)
       {
         switch(inst[instSet][instPos][2]) //reads position 2 in the instruction set
