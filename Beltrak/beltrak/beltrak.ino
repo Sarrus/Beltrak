@@ -42,6 +42,22 @@ void setup()
 
 void loop()
 {
+  
+/* the "loop" is devided into 3 logical sections,
+
+section 1: the menu position is ascertained and text is output to the screen, variables are ajusted to provide the other sections with user input
+
+section 2: the instruction array is queried and the sensors are checked, variables are ajusted to set the curent instructions for the train
+
+section 3: variables from section 2 are checked and the points are ajusted if necesary, then the speed of the train is set
+
+these three are repeated endlessly untill power off */
+
+//section 1: read user input and output display
+
+//section 2: check position and instructions
+
+//section 3: output to track
   //apply the PPD to the train
     analogWrite(pinPD, int((PPD / 100) * 255));
     
