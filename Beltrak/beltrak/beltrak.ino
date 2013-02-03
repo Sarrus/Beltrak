@@ -50,6 +50,11 @@ Programing started: 02/02/2013 at 14:08
     to change these in the code when introducing sensors!*/
     boolean VS[5];
     
+  //tranition boolean
+    /*when this is false the train is stationary and the menu is displayed, when it is true, the program executes the given
+    instructions and the UI is locked*/
+    boolean inTransit;
+    
 
 void setup()
 {
@@ -70,10 +75,10 @@ void setup()
     pinMode(pinDIR, OUTPUT); //instruct the board to output to the direction pin
     
   //initialise the switching instructions
-    inst[0][0][0] = 'W'; //in block
-    inst[0][0][1] = '9'; //4
-    inst[0][0][2] = 'C'; //set speed to
-    inst[0][0][3] = '9'; //1
+    inst[0][0][0] = 'W'; //wait
+    inst[0][0][1] = '9'; //900
+    inst[0][0][2] = 'X'; //end
+    inst[0][0][3] = '9'; //
     
   //initialise array positions
     instSet = 0;
@@ -94,6 +99,9 @@ void setup()
       pointState[i] = true;
       pointSwitch[i] = false;
     }
+    
+  //initialise transition boolean
+    inTransit = true;
 }
 
 void loop()
@@ -111,119 +119,136 @@ these three are repeated endlessly untill power off */
 
 //section 1: read user input and output display
     //print a welcome message
-      lcd.setCursor( 0, 0 );
-      lcd.print( "Beltrak 1.0" );
+      if(inTransit)
+      {
+        lcd.setCursor( 0, 0 );
+        lcd.print( "In Transit" );
+      }
+      else
+      {
+        lcd.setCursor( 0, 0 );
+        lcd.print( "Beltrak 1.0" );
+      }
 
 //section 2: check position and instructions
   /* section 2 is devided into two parts, part one checks if the given condition is met, part two carries out an instruction and moves
   to the next condition if it is, when a condition is met, the variable 'met' is set to true, section two is only run if met is true
   it sets met to false once it has been run*/
-  
+  if(inTransit)
+  {
     //section 2.1
-      switch(inst[instSet][instPos][0]) //this reads position 0 of an instruction set, to see what the condition is
-      {
-        case 'B': //meet when sensor x goes HIGH
+        switch(inst[instSet][instPos][0]) //this reads position 0 of an instruction set, to see what the condition is
         {
-          Serial.println("state is B!"); //this tells us that the board has read state B
-          
-          if(VS[(inst[instSet][instPos][1]) - 48] == true) //this reads the virtual sensor dictated by position 1
+          case 'B': //met when sensor x goes HIGH
           {
-            Serial.println("sensor high"); //this is run if the sensor is high or the VS is true
-            met = true; //the condition is met so this goes true
-          }
-          
-          break;
-        }
-        case 'W': //wait for x miliseconds then meet
-        {
-          Serial.println("state is W!"); //this tells us that the board has read state W
-          if (timer > ((inst[instSet][instPos][1]) - 48) * 100) //checks if the timer has exceded the stated time in multiples of 100
-          {
-            met = true; //the condition has been met
-          }
-          else
-          {
-            timer++; //incriment timer
-          }
-          break;
-        }
-      }
-      
-    //section 2.2
-      if(met)
-      {
-        switch(inst[instSet][instPos][2]) //reads position 2 in the instruction set
-        {
-          case 'S': //set the PPD to a set value
-          {
-            switch(inst[instSet][instPos][3]) //reads position 3 which contains the PPD setting
+            Serial.println("state is B!"); //this tells us that the board has read state B
+            
+            if(VS[(inst[instSet][instPos][1]) - 48] == true) //this reads the virtual sensor dictated by position 1
             {
-              case '0':
-              {
-                PPD = 0; //sets the ppd to 0%
-                break;
-              }
-              
-              case '1':
-              {
-                PPD = 50; //sets the PPD to 50%
-                reverser = false; // sets the direction forward
-                break;
-              }
-              
-              case '2':
-              {
-                PPD = 100; //sets the PPD to 100%
-                reverser = false; // sets the direction forward
-                break;
-              }
-              
-              case '3':
-              {
-                PPD = 50; //sets the PPD to 50%
-                reverser = true; // sets the direction backwards
-                break;
-              }
-              
-              case '4':
-              {
-                PPD = 100; //sets the PPD to 100%
-                reverser = true; // sets the direction backwards
-                break;
-              }
+              Serial.println("sensor high"); //this is run if the sensor is high or the VS is true
+              met = true; //the condition is met so this goes true
+            }
+            
+            break;
+          }
+          case 'W': //wait for x miliseconds then meet
+          {
+            Serial.println("state is W!"); //this tells us that the board has read state W
+            if (timer > ((inst[instSet][instPos][1]) - 48) * 100) //checks if the timer has exceded the stated time in multiples of 100
+            {
+              met = true; //the condition has been met
+            }
+            else
+            {
+              timer++; //incriment timer
             }
             break;
           }
-          
-          case 'C':
-          {
-            pointSwitch[inst[instSet][instPos][3] - 48] = false; //instructs the board to converge the given points
-            Serial.println("converge");
-            //delay(1000);
-            break;
-          }
-          
-          case 'D':
-          {
-            pointSwitch[inst[instSet][instPos][3] - 48] = true; //instructs the board to diverge the given points
-            Serial.println("diverge");
-            //delay(1000);
-            break;
-          }
         }
         
-        timer = 0; //resets the timer to be used by a diferent call of W
-        met = false; //this prevents the instruction from being run twice
-        //instPos++; //this moves to the next instruction set, it is commented out because there is only one instruction so far
-        for(int i = 0; i < 10; i++)
+      //section 2.2
+        if(met)
         {
-          Serial.print(i);
-          Serial.print(":");
-          Serial.println(pointSwitch[i]);
+          switch(inst[instSet][instPos][2]) //reads position 2 in the instruction set
+          {
+            case 'S': //set the PPD to a set value
+            {
+              switch(inst[instSet][instPos][3]) //reads position 3 which contains the PPD setting
+              {
+                case '0':
+                {
+                  PPD = 0; //sets the ppd to 0%
+                  break;
+                }
+                
+                case '1':
+                {
+                  PPD = 50; //sets the PPD to 50%
+                  reverser = false; // sets the direction forward
+                  break;
+                }
+                
+                case '2':
+                {
+                  PPD = 100; //sets the PPD to 100%
+                  reverser = false; // sets the direction forward
+                  break;
+                }
+                
+                case '3':
+                {
+                  PPD = 50; //sets the PPD to 50%
+                  reverser = true; // sets the direction backwards
+                  break;
+                }
+                
+                case '4':
+                {
+                  PPD = 100; //sets the PPD to 100%
+                  reverser = true; // sets the direction backwards
+                  break;
+                }
+              }
+              break;
+            }
+            
+            case 'C':
+            {
+              pointSwitch[inst[instSet][instPos][3] - 48] = false; //instructs the board to converge the given points
+              Serial.println("converge");
+              //delay(1000);
+              break;
+            }
+            
+            case 'D':
+            {
+              pointSwitch[inst[instSet][instPos][3] - 48] = true; //instructs the board to diverge the given points
+              Serial.println("diverge");
+              //delay(1000);
+              break;
+            }
+            
+            case 'X':
+            {
+              PPD = 0; //stop the train
+              inTransit = false; //stop following instructions
+              break;
+            }
+          }
+          
+          timer = 0; //resets the timer to be used by a diferent call of W
+          met = false; //this prevents the instruction from being run twice
+          //instPos++; //this moves to the next instruction set, it is commented out because there is only one instruction so far
+//          for(int i = 0; i < 10; i++)
+//          {
+//            Serial.print(i);
+//            Serial.print(":");
+//            Serial.println(pointSwitch[i]);
+//          }
+//          
+//          delay(10000);
         }
-        
-        delay(10000);
-      }
+  }
 
 //section 3: output to track
 
@@ -243,7 +268,7 @@ these three are repeated endlessly untill power off */
       digitalWrite(pinDIR, LOW);
     }
     
-  Serial.println(timer);  
+    
   delay(1); //protective delay to prevent over running the serial buffer and used to time iterations
 }
 
