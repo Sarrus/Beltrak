@@ -106,8 +106,8 @@ void setup()
   //initialise the switching instructions
     inst[0][0][0] = 'W'; //wait
     inst[0][0][1] = '9'; //900
-    inst[0][0][2] = 'X'; //end
-    inst[0][0][3] = '9'; //
+    inst[0][0][2] = 'S'; //end
+    inst[0][0][3] = '2'; //
     
   //initialise array positions
     instSet = 0;
@@ -295,7 +295,7 @@ these three are repeated endlessly untill power off */
                 
                 case '1':
                 {
-                  PPD = 50; //sets the PPD to 50%
+                  PPD = 75; //sets the PPD to 50%
                   reverser = false; // sets the direction forward
                   break;
                 }
@@ -309,7 +309,7 @@ these three are repeated endlessly untill power off */
                 
                 case '3':
                 {
-                  PPD = 50; //sets the PPD to 50%
+                  PPD = 75; //sets the PPD to 50%
                   reverser = true; // sets the direction backwards
                   break;
                 }
