@@ -1,5 +1,6 @@
 void respondButons()
 {
+  lcd.setCursor( 0, 0 );
   switch(readButons())
     {
     case rightOut:
