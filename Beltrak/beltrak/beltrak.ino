@@ -105,7 +105,7 @@ void setup()
   //initialise the switching instructions
   inst[0][0][0] = 'W'; //wait
   inst[0][0][1] = '9'; //900
-  inst[0][0][2] = 'X'; //end
+  inst[0][0][2] = 'S'; //end
   inst[0][0][3] = '2'; //
 
   //initialise array positions
@@ -177,26 +177,7 @@ void loop()
     respondConditions();
   }
   //section 3: output to track
-
-  //set the points
-
-
-  //apply the PPD to the train
-  analogWrite(pinPD, int((PPD / 100) * 255));
-
-  //apply the reverser to the train
-  if (reverser)
-  {
-    digitalWrite(pinDIR, HIGH);
-  }
-  else
-  {
-    digitalWrite(pinDIR, LOW);
-  }
-
-
+    outputToTrack();
   delay(1); //protective delay to prevent over running the serial buffer and used to time iterations
 }
-
-
 
