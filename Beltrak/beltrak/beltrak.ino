@@ -101,35 +101,34 @@ void loop()
    these three are repeated endlessly untill power off */
 
   //section 1: read user input and output display
-  //print a welcome message
-  if(inTransit)
-  {
-    lcd.setCursor( 0, 0 );
-    lcd.print( "In Transit" );
-  }
-  else
-  {
-    /*if the train is not in transit then we execute three consecutive steps, in step one the program reads A0 to see if any butons
-     are pressed, and sets the value of buttonOut to match. in step two this value is used to query the menu structure array
-     and that is then displayed on the screen, finaly in step 3 we check to see if the enter button has been pressed, if it has we
-     execute the instructions apropriate to the currently selected menu option*/
-
-    
-
-      respondButons();
-
-  }
+    //print a welcome message
+    if(inTransit)
+    {
+      lcd.setCursor( 0, 0 );
+      lcd.print( "In Transit" );
+    }
+    else
+    {
+      /*if the train is not in transit then we execute three consecutive steps, in step one the program reads A0 to see if any butons
+       are pressed, and sets the value of buttonOut to match. in step two this value is used to query the menu structure array
+       and that is then displayed on the screen, finaly in step 3 we check to see if the enter button has been pressed, if it has we
+       execute the instructions apropriate to the currently selected menu option*/
+       respondButons();
+    }
 
   //section 2: check position and instructions
-  /* section 2 is devided into two parts, part one checks if the given condition is met, part two carries out an instruction and moves
-   to the next condition if it is, when a condition is met, the variable 'met' is set to true, section two is only run if met is true
-   it sets met to false once it has been run*/
-  if(inTransit)
-  {
-    respondConditions();
-  }
+    /* section 2 is devided into two parts, part one checks if the given condition is met, part two carries out an instruction and moves
+     to the next condition if it is, when a condition is met, the variable 'met' is set to true, section two is only run if met is true
+     it sets met to false once it has been run*/
+    if(inTransit)
+    {
+      respondConditions();
+    }
   //section 3: output to track
     outputToTrack();
+    
+    
+    
   delay(1); //protective delay to prevent over running the serial buffer and used to time iterations
 }
 
