@@ -39,7 +39,7 @@ char inst[5][5][5]; //array containing the switching instructions
 //the position in the instruction array
 int instSet; //the set of instructions to be folowed, eg. go to hawkhaven, this is set by the user through the menus
 int instPos; //the position in the instructions, when a condition is met and a state is changed this incriments, when instSet changesm, this becomes 0
-boolean met; //set to true of a condition is met, the state is then changed.
+
 
 //timing variable
 /*when condition W is in force this is incrimented every iteration of loop untill it meets the given value at which point it
@@ -111,7 +111,6 @@ void setup()
   //initialise array positions
   instSet = 0;
   instPos = 0;
-  met = false;
 
   //initialise the timer
   timer = 0;  
@@ -175,38 +174,10 @@ void loop()
    it sets met to false once it has been run*/
   if(inTransit)
   {
-    //section 2.1
-    switch(inst[instSet][instPos][0]) //this reads position 0 of an instruction set, to see what the condition is
-    {
-    case 'B': //met when sensor x goes HIGH
-      {
-        Serial.println("state is B!"); //this tells us that the board has read state B
 
-        if(VS[(inst[instSet][instPos][1]) - 48] == true) //this reads the virtual sensor dictated by position 1
-        {
-          Serial.println("sensor high"); //this is run if the sensor is high or the VS is true
-          met = true; //the condition is met so this goes true
-        }
-
-        break;
-      }
-    case 'W': //wait for x miliseconds then meet
-      {
-        Serial.println("state is W!"); //this tells us that the board has read state W
-        if (timer > ((inst[instSet][instPos][1]) - 48) * 100) //checks if the timer has exceded the stated time in multiples of 100
-        {
-          met = true; //the condition has been met
-        }
-        else
-        {
-          timer++; //incriment timer
-        }
-        break;
-      }
-    }
 
     //section 2.2
-    if(met)
+    if(checkConditions())
     {
       switch(inst[instSet][instPos][2]) //reads position 2 in the instruction set
       {
@@ -276,7 +247,6 @@ void loop()
       }
 
       timer = 0; //resets the timer to be used by a diferent call of W
-      met = false; //this prevents the instruction from being run twice
       //instPos++; //this moves to the next instruction set, it is commented out because there is only one instruction so far
       //          for(int i = 0; i < 10; i++)
       //          {
