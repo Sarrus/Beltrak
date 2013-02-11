@@ -1,3 +1,17 @@
+/*
+
+ BELTRAK
+ 
+ V1.0
+ 
+ Hornby trainset automation
+ 
+ By Michael Bell
+ 
+ Programing started: 02/02/2013 at 14:08
+ 
+ */
+
 void respondButons()
 {
  /*in this function the program checks the position of the menu to make sure that when the requested move is made it wont move

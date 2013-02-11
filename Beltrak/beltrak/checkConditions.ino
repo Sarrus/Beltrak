@@ -1,3 +1,17 @@
+/*
+
+ BELTRAK
+ 
+ V1.0
+ 
+ Hornby trainset automation
+ 
+ By Michael Bell
+ 
+ Programing started: 02/02/2013 at 14:08
+ 
+ */
+
 boolean checkConditions()
 {
   switch(inst[instSet][instPos][0]) //this reads position 0 of an instruction set, to see what the condition is

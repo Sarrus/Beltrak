@@ -1,3 +1,17 @@
+/*
+
+ BELTRAK
+ 
+ V1.0
+ 
+ Hornby trainset automation
+ 
+ By Michael Bell
+ 
+ Programing started: 02/02/2013 at 14:08
+ 
+ */
+
 void outputMenu()
 {
   /*this function sets the cursor to the correct position and outputs the required text to the lcd*/
