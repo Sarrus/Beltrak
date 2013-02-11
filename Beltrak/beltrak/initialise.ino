@@ -20,8 +20,8 @@ void initialise()
 
   //initialise the switching instructions
   inst[0][0][0] = 'W'; //wait
-  inst[0][0][1] = '9'; //900
-  inst[0][0][2] = 'S'; //end
+  inst[0][0][1] = '1'; //900
+  inst[0][0][2] = 'X'; //end
   inst[0][0][3] = '2'; //
 
   //initialise array positions
@@ -48,5 +48,9 @@ void initialise()
 
   //initialises the anti-multipress boolean
   /*this is set to true so that if a button is stuck down when the board turns on it is not registered*/
-  buttonCaptured = true;
+  butonCaptured = true;
+  
+  //menu positions
+  menuPosX = 0;
+  menuPosY = 0;
 }

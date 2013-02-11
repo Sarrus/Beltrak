@@ -39,6 +39,10 @@ char inst[5][5][5]; //array containing the switching instructions
 //the menu array
 String menu[3][5][2];
 
+//position in the menu
+int menuPosX;
+int menuPosY;
+
 //the position in the instruction array
 int instSet; //the set of instructions to be folowed, eg. go to hawkhaven, this is set by the user through the menus
 int instPos; //the position in the instructions, when a condition is met and a state is changed this incriments, when instSet changesm, this becomes 0
@@ -82,7 +86,10 @@ boolean inTransit;
 //anti-multipress boolean
 /*to prevent the board from reading a button as pressed multiple times the board sets this to true when it responds to a press
  it will then not respond again untill this is set to false by the board detecting that no button is pressed*/
-boolean buttonCaptured;
+boolean butonCaptured;
+
+//last menu move
+  int lastMenuMove;
 
 
 void setup()
@@ -118,6 +125,7 @@ void loop()
        and that is then displayed on the screen, finaly in step 3 we check to see if the enter button has been pressed, if it has we
        execute the instructions apropriate to the currently selected menu option*/
        respondButons();
+       outputMenu();
     }
 
   //section 2: check position and instructions
