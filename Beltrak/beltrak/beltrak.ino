@@ -36,6 +36,9 @@ boolean pointSwitch[10]; //this holds the desired state of the points with FALSE
 //the instruction array
 char inst[5][5][5]; //array containing the switching instructions
 
+//the menu array
+String menu[3][5][2];
+
 //the position in the instruction array
 int instSet; //the set of instructions to be folowed, eg. go to hawkhaven, this is set by the user through the menus
 int instPos; //the position in the instructions, when a condition is met and a state is changed this incriments, when instSet changesm, this becomes 0
@@ -85,6 +88,7 @@ boolean buttonCaptured;
 void setup()
 {
   initialise();
+  initialiseMenu();
 }
 
 void loop()
