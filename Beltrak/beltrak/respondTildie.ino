@@ -11,6 +11,9 @@
  Programing started: 02/02/2013 at 14:08
  
  */
+
+/*if the program reaches a tildie this is run, when the program moves onto a ~ it moves back one step except when it moved left
+onto a tildie in which case it goes up untill it reaches a menu option*/
  
 void respondTildie()
 {
@@ -30,7 +33,7 @@ void respondTildie()
     
     else
       {
-        menuPosX = 0;
+        menuPosX = 0; //this is here in case none of these conditions are met, it resets the menu position to break the loop
         menuPosY = 0;
       }  
   }
