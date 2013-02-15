@@ -126,6 +126,7 @@ void loop()
        execute the instructions apropriate to the currently selected menu option*/
        respondButons();
        respondHashes();
+       respondTildie();
        outputMenu();
     }
 

@@ -25,7 +25,7 @@ void respondButons()
     {
     case rightOut:
       {
-        if(menuPosX < 2 && menu[menuPosX + 1][menuPosY][0] != "~               " && butonCaptured == false) //check conditions
+        if(menuPosX < 2 && butonCaptured == false) //check conditions
         {
           menuPosX++; //move menu position
           butonCaptured = true; //say that a button is being pressed
@@ -36,7 +36,7 @@ void respondButons()
 
     case upOut:
       {
-        if(menuPosY > 0 && menu[menuPosX][menuPosY - 1][0] != "~               " && butonCaptured == false)
+        if(menuPosY > 0 && butonCaptured == false)
         {
           menuPosY--;
           butonCaptured = true;
@@ -47,7 +47,7 @@ void respondButons()
 
     case downOut:
       {
-        if(menuPosY < 4 && menu[menuPosX][menuPosY +1][0] != "~               " && butonCaptured == false)
+        if(menuPosY < 4 && butonCaptured == false)
         {
           menuPosY++;
           butonCaptured = true;
@@ -58,7 +58,7 @@ void respondButons()
 
     case leftOut:
       {
-        if(menuPosX > 0 && menu[menuPosX - 1][menuPosY][0] != "~               " && butonCaptured == false)
+        if(menuPosX > 0 && butonCaptured == false)
         {
           menuPosX--;
           butonCaptured = true;
