@@ -96,6 +96,7 @@ void setup()
 {
   initialise();
   initialiseMenu();
+  initialiseInstructions();
 }
 
 void loop()
@@ -142,7 +143,9 @@ void loop()
     outputToTrack();
     
     
-    
+  Serial.print(instSet);
+  Serial.print(",");
+  Serial.println(instPos); 
   delay(1); //protective delay to prevent over running the serial buffer and used to time iterations
 }
 

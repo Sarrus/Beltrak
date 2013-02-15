@@ -56,6 +56,7 @@ void respondConditions()
               break;
             }
           }
+          instPos++;
           break;
         }
 
@@ -64,7 +65,9 @@ void respondConditions()
           pointSwitch[inst[instSet][instPos][3] - 48] = false; //instructs the board to converge the given points
           Serial.println("converge");
           //delay(1000);
+          instPos++;
           break;
+          
         }
 
       case 'D':
@@ -72,6 +75,7 @@ void respondConditions()
           pointSwitch[inst[instSet][instPos][3] - 48] = true; //instructs the board to diverge the given points
           Serial.println("diverge");
           //delay(1000);
+          instPos++;
           break;
         }
 
@@ -83,7 +87,7 @@ void respondConditions()
         }
       }
       timer = 0; //resets the timer to be used by a diferent call of W
-      //instPos++; //this moves to the next instruction set, it is commented out because there is only one instruction so far
+       //this moves to the next instruction set
       //          for(int i = 0; i < 10; i++)
       //          {
       //            Serial.print(i);
