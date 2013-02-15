@@ -125,6 +125,7 @@ void loop()
        and that is then displayed on the screen, finaly in step 3 we check to see if the enter button has been pressed, if it has we
        execute the instructions apropriate to the currently selected menu option*/
        respondButons();
+       respondHashes();
        outputMenu();
     }
 
