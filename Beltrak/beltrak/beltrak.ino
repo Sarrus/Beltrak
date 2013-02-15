@@ -33,6 +33,13 @@ boolean pointSwitch[10]; //this holds the desired state of the points with FALSE
 #define pinDIR 12 //the pin number of the direction pin
 #define pinButtons A0 //the button input pin
 
+#define point1 0 //the pins for the point relays
+#define point2 1
+#define point3 2
+
+#define pointPower 11
+#define pointDir 13
+
 //the instruction array
 char inst[5][5][5]; //array containing the switching instructions
 
@@ -141,7 +148,10 @@ void loop()
     }
   //section 3: output to track
     outputToTrack();
-    
+  
+  
+ 
+  
     
   Serial.print(instSet);
   Serial.print(",");

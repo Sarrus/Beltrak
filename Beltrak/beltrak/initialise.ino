@@ -32,7 +32,12 @@ void initialise()
   pinMode(pinButtons, INPUT ); //instruct the board to read from the button pin
   digitalWrite(pinButtons, LOW); //make sure that the board doesent pass voltage to the button pin
 
+  pinMode(point1, OUTPUT); //the point pins
+  pinMode(point2, OUTPUT);
+  pinMode(point3, OUTPUT);
   
+  pinMode(pointPower, OUTPUT);
+  pinMode(pointDir, OUTPUT);
   
 
   //initialise array positions
