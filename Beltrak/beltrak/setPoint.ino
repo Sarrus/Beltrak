@@ -16,7 +16,19 @@
  
  void setPoint(boolean CorD, int point)
  {
-   digitalWrite(point, HIGH);
+   int pointPin;
+   
+   if (point == 1)
+     pointPin = point1;
+   if (point == 2)
+     pointPin = point2;
+   if (point == 3)
+     pointPin = point3;
+  
+     
+   
+   
+   digitalWrite(pointPin, HIGH);
    
    if (CorD)
    {
@@ -30,5 +42,5 @@
    analogWrite(pointPower, 255);
    delay(200);
    analogWrite(pointPower, 0);
-   digitalWrite(point, LOW);
+   digitalWrite(pointPin, LOW);
  }

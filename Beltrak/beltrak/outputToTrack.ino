@@ -16,7 +16,7 @@ void outputToTrack()
 {
   
   //set the points
-
+  checkPoints();
 
   //apply the PPD to the train
   analogWrite(pinPD, int((PPD / 100) * 255));
