@@ -11,6 +11,9 @@
  Programing started: 02/02/2013 at 14:08
  
  */
+
+/*this function takes in a point number and a point state, looks up the pin for that point's relay then 
+sets the point to the given state.*/
  
  //C false converge A | D true Diverge B
  
