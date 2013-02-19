@@ -12,6 +12,15 @@
  
  */
 
+/*this function initialises the menu display array, the first number is the X position, the second number is the 
+Y position and the third number is the line number, 0 is line 1 and 1 is line 2
+
+~ are used to fill the bottom of columbs as well as blocking the cursor from moveing between options which are on
+different sub menus
+
+# are used to bridge the gap between menu options that should apear to be next to eachoter on the Y axis but actualy
+arent*/
+
 void initialiseMenu()
 {
   menu[0][0][0] = "Welcome to      ";        menu[1][0][0] = "Destinations    ";  menu[2][0][0] = "Hawkhaven       ";
