@@ -41,7 +41,7 @@ void initialise()
   
 
   //initialise array positions
-  instSet = 1;
+  instSet = 2;
   instPos = 0;
 
   //initialise the timer
