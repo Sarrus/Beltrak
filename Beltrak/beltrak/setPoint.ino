@@ -31,7 +31,7 @@ sets the point to the given state.*/
      
    
    
-   digitalWrite(pointPin, HIGH);
+   
    
    if (CorD)
    {
@@ -42,8 +42,11 @@ sets the point to the given state.*/
      digitalWrite(pointDir, LOW);
    }
    
-   analogWrite(pointPower, 255);
+   //analogWrite(pointPower, 255);
+   
+   digitalWrite(pointPin, HIGH);
+   
    delay(200);
-   analogWrite(pointPower, 0);
+ //  analogWrite(pointPower, 0);
    digitalWrite(pointPin, LOW);
  }

@@ -37,8 +37,8 @@ boolean pointSwitch[10]; //this holds the desired state of the points with FALSE
 #define point2 1
 #define point3 2
 
-#define pointPower 11
-#define pointDir 13
+//          #define pointPower 11
+#define pointDir 11
 
 //the instruction array
 char inst[5][5][5]; //array containing the switching instructions
