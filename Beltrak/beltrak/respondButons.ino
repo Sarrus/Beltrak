@@ -21,7 +21,7 @@ void respondButons()
  
  once that has been confirmed it then moves the position in the menu and records the move that was just made for use in the
  hashRespond() function later in the program*/
-  switch(readButons())
+  switch(readSensors(pinButtons))
     {
     case rightOut:
       {
