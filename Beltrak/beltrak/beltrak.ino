@@ -32,6 +32,8 @@ boolean pointSwitch[10]; //this holds the desired state of the points with FALSE
 #define pinPD 3 //the pin number for the Potential Diference output
 #define pinDIR 12 //the pin number of the direction pin
 #define pinButtons A0 //the button input pin
+#define pinLowSensors A1 //the first 5 sensors
+#define pinHighSensors A2 //the last 5 sensors
 
 #define point1 0 //the pins for the point relays
 #define point2 1
