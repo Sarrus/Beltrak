@@ -90,6 +90,20 @@ boolean inTransit;
 #define leftOut 4
 #define selectOut 5
 
+//sensor output numbers
+#define sensorNone 0
+#define sensorOne 1
+#define sensorTwo 2
+#define sensorThree 3
+#define sensorFour 4
+#define sensorFive 5
+
+#define sensorSix 6
+#define sensorSeven 7
+#define sensorEight 10
+#define sensorNine 9
+#define sensorTen 10
+
 //anti-multipress boolean
 /*to prevent the board from reading a button as pressed multiple times the board sets this to true when it responds to a press
  it will then not respond again untill this is set to false by the board detecting that no button is pressed*/
