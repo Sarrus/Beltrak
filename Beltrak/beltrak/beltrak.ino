@@ -66,6 +66,7 @@ int timer;
 /*these are variables that are used to test the program before sensors are intoduced true means HIGH false means LOW, !remember
  to change these in the code when introducing sensors!*/
 boolean VS[5];
+boolean sensor[10];
 
 //tranition boolean
 /*when this is false the train is stationary and the menu is displayed, when it is true, the program executes the given
