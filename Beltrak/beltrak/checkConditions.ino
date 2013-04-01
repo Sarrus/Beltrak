@@ -18,7 +18,7 @@ boolean checkConditions()
     {
     case 'B': //met when sensor x goes HIGH
       {
-        Serial.println((inst[instSet][instPos][1]) - 48); //this tells us that the board has read state B
+        //Serial.println((inst[instSet][instPos][1]) - 48); //this tells us that the board has read state B
 
         if(checkSensor((inst[instSet][instPos][1]) - 48) == true) //this reads the virtual sensor dictated by position 1
         {
