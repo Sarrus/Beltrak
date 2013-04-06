@@ -35,6 +35,8 @@ void initialise()
   pinMode(point1, OUTPUT); //the point pins
   pinMode(point2, OUTPUT);
   pinMode(point3, OUTPUT);
+  pinMode(point4, OUTPUT);
+  pinMode(point5, OUTPUT);
   
 //  pinMode(pointPower, OUTPUT);
   pinMode(pointDir, OUTPUT);

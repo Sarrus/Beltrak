@@ -38,15 +38,17 @@ boolean pointSwitch[10]; //this holds the desired state of the points with FALSE
 #define point1 0 //the pins for the point relays
 #define point2 1
 #define point3 2
+#define point4 10
+#define point5 A3
 
 //          #define pointPower 11
 #define pointDir 11
 
 //the instruction array
-char inst[5][5][5]; //array containing the switching instructions
+char inst[5][11][5]; //array containing the switching instructions
 
 //the menu array
-String menu[3][5][2];
+String menu[3][8][2];
 
 //position in the menu
 int menuPosX;

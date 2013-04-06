@@ -23,11 +23,16 @@ sets the point to the given state.*/
    
    if (point == 1)
      pointPin = point1;
-   if (point == 2)
+   else if (point == 2)
      pointPin = point2;
-   if (point == 3)
+   else if (point == 3)
      pointPin = point3;
-  
+   else if (point == 4)
+     pointPin = point4;
+   else if (point == 5)
+     pointPin = point5;
+   
+
      
    
    
@@ -36,17 +41,20 @@ sets the point to the given state.*/
    if (CorD)
    {
      digitalWrite(pointDir, HIGH);
+     //delay(500);
    }
    else
    {
      digitalWrite(pointDir, LOW);
+     //delay(500);
    }
    
    //analogWrite(pointPower, 255);
    
    digitalWrite(pointPin, HIGH);
    
-   delay(200);
- //  analogWrite(pointPower, 0);
+   delay(50);
+   //analogWrite(pointPower, 0);
    digitalWrite(pointPin, LOW);
+   
  }
