@@ -47,7 +47,7 @@ void respondButons()
 
     case downOut:
       {
-        if(menuPosY < 4 && butonCaptured == false)
+        if(menuPosY < 9 && butonCaptured == false)
         {
           menuPosY++;
           butonCaptured = true;
@@ -69,7 +69,7 @@ void respondButons()
 
     case selectOut:
       {
-        lcd.print("Select          ");
+        respondEnter(menuPosX, menuPosY);
         break;
       }
 
