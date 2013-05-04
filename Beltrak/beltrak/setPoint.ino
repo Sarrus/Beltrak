@@ -57,4 +57,6 @@ sets the point to the given state.*/
    //analogWrite(pointPower, 0);
    digitalWrite(pointPin, LOW);
    
+   digitalWrite(pointDir, LOW);
+   
  }
