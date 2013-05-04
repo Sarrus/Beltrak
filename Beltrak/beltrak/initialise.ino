@@ -43,7 +43,7 @@ void initialise()
   
 
   //initialise array positions
-  instSet = 1;
+  instSet = 2;
   instPos = 0;
 
   //initialise the timer
@@ -70,6 +70,6 @@ void initialise()
   butonCaptured = true;
   
   //menu positions
-  menuPosX = 0;
-  menuPosY = 0;
+  menuPosX = 2;
+  menuPosY = 2;
 }

@@ -27,7 +27,7 @@ the voltage used is stored in buttonVoltage*/
 int readSensors(int sensorNumber)
 {
   unsigned int buttonVoltage = analogRead(sensorNumber); //this reads the voltage and stores it
-  Serial.println(buttonVoltage);
+  //Serial.println(buttonVoltage);
   if(buttonVoltage < (rightADC + ADCsensitivity)) //the rightADC is 0 so we check that it is beneath 0 +the sensitivity
   {
     return rightOut; //this returns the button pressed

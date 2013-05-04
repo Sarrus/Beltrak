@@ -23,17 +23,14 @@ sets the point to the given state.*/
    
    if (point == 1)
      pointPin = point1;
-   else if (point == 2)
+   if (point == 2)
      pointPin = point2;
-   else if (point == 3)
+   if (point == 3)
      pointPin = point3;
-   else if (point == 4)
+   if (point == 4)
      pointPin = point4;
-   else if (point == 5)
+   if (point == 5)
      pointPin = point5;
-   
-
-     
    
    
    

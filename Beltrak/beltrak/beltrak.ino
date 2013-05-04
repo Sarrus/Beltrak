@@ -48,7 +48,7 @@ boolean pointSwitch[10]; //this holds the desired state of the points with FALSE
 char inst[5][11][5]; //array containing the switching instructions
 
 //the menu array
-String menu[3][8][2];
+String menu[3][10][2];
 
 //position in the menu
 int menuPosX;
@@ -142,8 +142,10 @@ void loop()
     //print a welcome message
     if(inTransit)
     {
-      lcd.setCursor( 0, 0 );
+      lcd.setCursor(0,0);
+      //delay(5000);
       lcd.print( "In Transit" );
+      Serial.println("in transit");
     }
     else
     {
@@ -155,6 +157,7 @@ void loop()
        respondHashes();
        respondTildie();
        outputMenu();
+       Serial.println("not in transit");
     }
 
   //section 2: check position and instructions
@@ -166,7 +169,10 @@ void loop()
       respondConditions();
     }
   //section 3: output to track
-    outputToTrack();
+    if(inTransit)
+    {
+      outputToTrack();
+    }
   
   
  
