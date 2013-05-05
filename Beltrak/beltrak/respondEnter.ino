@@ -29,4 +29,13 @@ void respondEnter(int menuX, int menuY) //the function takes in the current menu
     
     inTransit = true; //we set the train in transit which starts the instructions and locks the screen
   }
+  else
+  {
+    if(menuPosX < 2 && butonCaptured == false) //check conditions
+        {
+          menuPosX++; //move menu position
+          butonCaptured = true; //say that a button is being pressed
+          lastMenuMove = rightOut; //record the last move
+        }
+  }
 }

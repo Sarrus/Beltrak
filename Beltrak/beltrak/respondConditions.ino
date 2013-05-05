@@ -62,7 +62,7 @@ void respondConditions()
 
       case 'C':
         {
-          pointSwitch[inst[instSet][instPos][3] - 48] = false; //instructs the board to converge the given points
+          setPoint(false, (inst[instSet][instPos][3] - 48)); //instructs the board to converge the given points
           Serial.println("converge");
           //delay(1000);
           instPos++;
@@ -72,7 +72,7 @@ void respondConditions()
 
       case 'D':
         {
-          pointSwitch[inst[instSet][instPos][3] - 48] = true; //instructs the board to diverge the given points
+          setPoint(true, (inst[instSet][instPos][3] - 48)); //instructs the board to diverge the given points
           Serial.println("diverge");
           //delay(1000);
           instPos++;

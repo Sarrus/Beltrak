@@ -35,7 +35,7 @@ boolean checkConditions()
       }
     case 'W': //wait for x miliseconds then meet
       {
-        Serial.println("state is W!"); //this tells us that the board has read state W
+        //Serial.println("state is W!"); //this tells us that the board has read state W
         if (timer > ((inst[instSet][instPos][1]) - 48) * 100) //checks if the timer has exceded the stated time in multiples of 100
         {
           return true; //the condition has been met

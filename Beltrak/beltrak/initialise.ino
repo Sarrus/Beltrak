@@ -70,6 +70,6 @@ void initialise()
   butonCaptured = true;
   
   //menu positions
-  menuPosX = 2;
-  menuPosY = 2;
+  menuPosX = 0;
+  menuPosY = 0;
 }

@@ -19,6 +19,7 @@ sets the point to the given state.*/
  
  void setPoint(boolean CorD, int point)
  {
+   Serial.println("pointSet called");
    int pointPin;
    
    if (point == 1)
@@ -38,22 +39,24 @@ sets the point to the given state.*/
    if (CorD)
    {
      digitalWrite(pointDir, HIGH);
-     //delay(500);
-   }
-   else
-   {
-     digitalWrite(pointDir, LOW);
+     Serial.println("director high");
      //delay(500);
    }
    
    //analogWrite(pointPower, 255);
    
    digitalWrite(pointPin, HIGH);
+   Serial.println("ground point");
    
    delay(50);
    //analogWrite(pointPower, 0);
    digitalWrite(pointPin, LOW);
-   
-   digitalWrite(pointDir, LOW);
+   Serial.println("unground point");
+   if (CorD)
+   {
+     delay(50);
+     digitalWrite(pointDir, LOW);
+     Serial.println("director low");
+   }
    
  }

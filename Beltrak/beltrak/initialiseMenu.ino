@@ -24,7 +24,7 @@ arent*/
 void initialiseMenu()
 {
   menu[0][0][0] = "Welcome to      ";        menu[1][0][0] = "Destinations    ";  menu[2][0][0] = "Hawkhaven       ";
-  menu[0][0][1] = "Beltrak!        ";        menu[1][0][1] = "                ";  menu[2][0][1] = "                ";
+  menu[0][0][1] = "Beltrak 1.0     ";        menu[1][0][1] = "                ";  menu[2][0][1] = "                ";
   
   menu[0][1][0] = "~               ";        menu[1][1][0] = "#               ";  menu[2][1][0] = "Remilo          ";
   menu[0][1][1] = "                ";        menu[1][1][1] = "                ";  menu[2][1][1] = "                ";
