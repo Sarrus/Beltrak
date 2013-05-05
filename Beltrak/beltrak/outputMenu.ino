@@ -19,6 +19,6 @@ void outputMenu()
   lcd.print(menu[menuPosX][menuPosY][0]); //output text
   //Serial.println(menu[menuPosX][menuPosY][0]);
   lcd.setCursor(0,1);
-  lcd.print(menu[menuPosX][menuPosY][1]);
-  //Serial.println(menu[menuPosX][menuPosY][1]);
+  //lcd.print(menu[menuPosX][menuPosY][1]);
+  Serial.println(menu[menuPosX][menuPosY][1]);
 }

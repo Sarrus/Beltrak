@@ -49,10 +49,6 @@ void initialise()
   //initialise the timer
   timer = 0;  
 
-  //initialise virtual sensors
-  VS[1] = true;
-  VS[2] = true;
-
   //initialise points
   for(int i=0; i<10; i++)
   {
@@ -63,7 +59,7 @@ void initialise()
   }
 
   //initialise transition boolean
-  inTransit = true;
+  inTransit = false;
 
   //initialises the anti-multipress boolean
   /*this is set to true so that if a button is stuck down when the board turns on it is not registered*/
