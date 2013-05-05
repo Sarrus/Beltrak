@@ -25,8 +25,8 @@ float PPD; //Percentage Potential Difference -- what the board multiplies the ma
 boolean reverser; //controls the direction of the train, when TRUE the train is reversed
 
 //track control variables
-boolean pointState[10]; //this says the curent state of the points with FALSE for converge and TRUE for diverge
-boolean pointSwitch[10]; //this holds the desired state of the points with FALSE for converge and TRUE for diverge
+//boolean pointState[10]; //this says the curent state of the points with FALSE for converge and TRUE for diverge
+//boolean pointSwitch[10]; //this holds the desired state of the points with FALSE for converge and TRUE for diverge
 
 //pin number constants
 #define pinPD 3 //the pin number for the Potential Diference output

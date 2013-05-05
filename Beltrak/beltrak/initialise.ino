@@ -52,10 +52,10 @@ void initialise()
   //initialise points
   for(int i=0; i<10; i++)
   {
-    /*these two values are set to differ so that the board is forced to move all the points on the first run, this makes sure
-     that the board knows their positions and reveals any malfunctioning points*/
-    pointState[i] = true;
-    pointSwitch[i] = false;
+//    /*these two values are set to differ so that the board is forced to move all the points on the first run, this makes sure
+//     that the board knows their positions and reveals any malfunctioning points*/
+//    pointState[i] = true;
+//    pointSwitch[i] = false;
   }
 
   //initialise transition boolean
