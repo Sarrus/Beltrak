@@ -38,4 +38,12 @@ void respondEnter(int menuX, int menuY) //the function takes in the current menu
           lastMenuMove = rightOut; //record the last move
         }
   }
+  
+  if(menuX == 2 && menuY == 8)
+  {
+    if(backlight == 2)
+      backlight = 1;
+    else
+      backlight = 2;
+  }
 }

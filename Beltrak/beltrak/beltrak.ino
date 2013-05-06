@@ -37,9 +37,10 @@ boolean reverser; //controls the direction of the train, when TRUE the train is 
 
 #define point1 0 //the pins for the point relays
 #define point2 1
-#define point3 2
-#define point4 10
-#define point5 A3
+#define backlightPin 2
+
+int backlight;
+
 
 //          #define pointPower 11
 #define pointDir 11
@@ -182,7 +183,7 @@ void loop()
 //    lcd.print("Welcome to      ");
 //  }
  
-  
+  setBacklight();
     
   Serial.print(menuPosX);
   Serial.print(",");

@@ -69,7 +69,11 @@ void respondButons()
 
     case selectOut:
       {
-        respondEnter(menuPosX, menuPosY);
+        if(!butonCaptured)
+        {
+          respondEnter(menuPosX, menuPosY);
+          butonCaptured = true;
+        }
         break;
       }
 

@@ -26,16 +26,7 @@ sets the point to the given state.*/
      pointPin = point1;
    if (point == 2)
      pointPin = point2;
-   if (point == 3)
-     pointPin = point3;
-   if (point == 4)
-     pointPin = point4;
-   if (point == 5)
-     pointPin = point5;
-   
-   
-   
-   
+     
    if (CorD)
    {
      digitalWrite(pointDir, HIGH);
