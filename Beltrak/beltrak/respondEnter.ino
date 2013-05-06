@@ -10,6 +10,8 @@
  
  Programing started: 02/02/2013 at 14:08
  
+ Programing completed: 06/05/2013 at 17:45
+ 
  */
  
  /*this function is called when enter is pressed it either sets the instruction set to the apropriate station or

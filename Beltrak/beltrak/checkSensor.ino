@@ -10,6 +10,8 @@
  
  Programing started: 02/02/2013 at 14:08
  
+ Programing completed: 06/05/2013 at 17:45
+ 
  */
 
 /*this function takes in the number for a sensor and reads the apropriate sensor set then outputs a boolean

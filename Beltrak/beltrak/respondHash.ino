@@ -10,6 +10,8 @@
  
  Programing started: 02/02/2013 at 14:08
  
+ Programing completed: 06/05/2013 at 17:45
+ 
  */
  
  /*if the program moves onto a hash it moves forward untill it reaches a menu option except when it moves left onto the hash

@@ -10,6 +10,8 @@
  
  Programing started: 02/02/2013 at 14:08
  
+ Programing completed: 06/05/2013 at 17:45
+ 
  */
 
 /*this function initialises the menu display array, the first number is the X position, the second number is the 

@@ -10,6 +10,8 @@
  
  Programing started: 02/02/2013 at 14:08
  
+ Programing completed: 06/05/2013 at 17:45
+ 
  */
 
 /*this function returns an intager value coresponding the the current button (or lack therof) being
