@@ -45,7 +45,7 @@ boolean reverser; //controls the direction of the train, when TRUE the train is 
 #define pointDir 11
 
 //the instruction array
-char inst[10][11][5]; //array containing the switching instructions
+char inst[8][7][4]; //array containing the switching instructions
 
 //the menu array
 String menu[3][10][2];
@@ -184,9 +184,9 @@ void loop()
  
   
     
-//  Serial.print(menuPosX);
-//  Serial.print(",");
-//  Serial.println(menuPosY); 
+  Serial.print(menuPosX);
+  Serial.print(",");
+  Serial.println(menuPosY); 
   delay(1); //protective delay to prevent over running the serial buffer and used to time iterations
 }
 
