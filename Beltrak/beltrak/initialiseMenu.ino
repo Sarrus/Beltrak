@@ -50,6 +50,8 @@ void initialiseMenu()
   menu[0][8][0] = "~               ";        menu[1][8][0] = "Settings        ";  menu[2][8][0] = "Backlight       ";
   menu[0][8][1] = "                ";        menu[1][8][1] = "                ";  menu[2][8][1] = "                ";
   
+  //this line originaly contained the top speed setting but it was removed when testing showed that changeing the
+  //top speed caused the train to miss stations.
   menu[0][9][0] = "~               ";        menu[1][9][0] = "~               ";  menu[2][9][0] = "~               ";
   menu[0][9][1] = "                ";        menu[1][9][1] = "                ";  menu[2][9][1] = "                ";
 }

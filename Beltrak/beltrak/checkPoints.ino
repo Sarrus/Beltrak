@@ -12,8 +12,9 @@
  
  */
 
-/*this function checks the status of the points and compares them to what they should be, if its diferent it
-changes the points to match*/
+/*this function was originaly used to check the position of the points but it turned out
+to cause multiple errors and so was removed and replaced with code that simply switched 
+the points without remembering their position*/
 
 
 void checkPoints()

@@ -15,8 +15,8 @@
  void setBacklight()
  {
    if (backlight == 1)
-     digitalWrite (backlightPin, 0);
+     digitalWrite (backlightPin, 0); //this switches the backlight off
    
    if (backlight == 2)
-     digitalWrite (backlightPin, 255);
+     digitalWrite (backlightPin, 255); //this switches it on
  }

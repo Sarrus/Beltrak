@@ -39,15 +39,18 @@ speed forwards, 3 is roughly half speed backwards and 4 is full speed backwards*
 
 void initialiseInstructions()
 {
+  //Hawkhaven
   inst[0][0][0] = 'W';  inst[0][0][1] = '1';  inst[0][0][2] = 'S';  inst[0][0][3] = '2';
   inst[0][1][0] = 'B';  inst[0][1][1] = '2';  inst[0][1][2] = 'S';  inst[0][1][3] = '4';
   inst[0][2][0] = 'B';  inst[0][2][1] = '7';  inst[0][2][2] = 'S';  inst[0][2][3] = '0';
   inst[0][3][0] = 'W';  inst[0][3][1] = '2';  inst[0][3][2] = 'X';
   
+  //Remilo
   inst[1][0][0] = 'W';  inst[1][0][1] = '1';  inst[1][0][2] = 'S';  inst[1][0][3] = '2';
   inst[1][1][0] = 'B';  inst[1][1][1] = '6';  inst[1][1][2] = 'S';  inst[1][1][3] = '0';
   inst[1][2][0] = 'W';  inst[1][2][1] = '1';  inst[1][2][2] = 'X';
   
+  //Allantown
   inst[2][0][0] = 'W';  inst[2][0][1] = '1';  inst[2][0][2] = 'S';  inst[2][0][3] = '2';
   inst[2][1][0] = 'B';  inst[2][1][1] = '2';  inst[2][1][2] = 'S';  inst[2][1][3] = '4';
   inst[2][2][0] = 'B';  inst[2][2][1] = '7';  inst[2][2][2] = 'D';  inst[2][2][3] = '2';
@@ -56,6 +59,7 @@ void initialiseInstructions()
   inst[2][5][0] = 'W';  inst[2][5][1] = '1';  inst[2][5][2] = 'S';  inst[2][5][3] = '0';
   inst[2][6][0] = 'W';  inst[2][6][1] = '1';  inst[2][6][2] = 'X'; 
 
+  //Gregville
   inst[3][0][0] = 'W';  inst[3][0][1] = '1';  inst[3][0][2] = 'S';  inst[3][0][3] = '2';
   inst[3][1][0] = 'B';  inst[3][1][1] = '2';  inst[3][1][2] = 'S';  inst[3][1][3] = '4';
   inst[3][2][0] = 'B';  inst[3][2][1] = '7';  inst[3][2][2] = 'C';  inst[3][2][3] = '2';
@@ -64,6 +68,7 @@ void initialiseInstructions()
   inst[3][5][0] = 'W';  inst[3][5][1] = '3';  inst[3][5][2] = 'S';  inst[3][5][3] = '0';
   inst[3][6][0] = 'W';  inst[3][6][1] = '1';  inst[3][6][2] = 'X';  
   
+  //Leovetticutte
   inst[4][0][0] = 'W';  inst[4][0][1] = '1';  inst[4][0][2] = 'S';  inst[4][0][3] = '2';
   inst[4][1][0] = 'B';  inst[4][1][1] = '2';  inst[4][1][2] = 'S';  inst[4][1][3] = '4';
   inst[4][2][0] = 'B';  inst[4][2][1] = '7';  inst[4][2][2] = 'C';  inst[4][2][3] = '2';
@@ -72,13 +77,15 @@ void initialiseInstructions()
   inst[4][5][0] = 'W';  inst[4][5][1] = '3';  inst[4][5][2] = 'S';  inst[4][5][3] = '0';
   inst[4][6][0] = 'W';  inst[4][6][1] = '1';  inst[4][6][2] = 'X';   
   
+  //Regantra
   inst[5][0][0] = 'W';  inst[5][0][1] = '1';  inst[5][0][2] = 'S';  inst[5][0][3] = '2';
   inst[5][1][0] = 'B';  inst[5][1][1] = '2';  inst[5][1][2] = 'S';  inst[5][1][3] = '2';
   inst[5][2][0] = 'W';  inst[5][2][1] = '3';  inst[5][2][2] = 'S';  inst[5][2][3] = '4';
   inst[5][3][0] = 'B';  inst[5][3][1] = '3';  inst[5][3][2] = 'S';  inst[5][3][3] = '3';
   inst[5][4][0] = 'W';  inst[5][4][1] = '2';  inst[5][4][2] = 'S';  inst[5][4][3] = '0';
-  inst[5][5][0] = 'W';  inst[5][5][1] = '1';  inst[5][5][2] = 'X';   
- 
+  inst[5][5][0] = 'W';  inst[5][5][1] = '1';  inst[5][5][2] = 'X'; 
+  
+  //Vancoville
   inst[6][0][0] = 'W';  inst[6][0][1] = '1';  inst[6][0][2] = 'S';  inst[6][0][3] = '2';
   inst[6][1][0] = 'B';  inst[6][1][1] = '1';  inst[6][1][2] = 'S';  inst[6][1][3] = '3';
   inst[6][2][0] = 'W';  inst[6][2][1] = '1';  inst[6][2][2] = 'S';  inst[6][2][3] = '0';

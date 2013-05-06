@@ -65,7 +65,7 @@ void respondConditions()
           setPoint(false, (inst[instSet][instPos][3] - 48)); //instructs the board to converge the given points
           Serial.println("converge");
           //delay(1000);
-          instPos++;
+          instPos++; //moves us to the next instruction
           break;
           
         }
@@ -75,7 +75,7 @@ void respondConditions()
           setPoint(true, (inst[instSet][instPos][3] - 48)); //instructs the board to diverge the given points
           Serial.println("diverge");
           //delay(1000);
-          instPos++;
+          instPos++; //moves us to the next instruction
           break;
         }
 

@@ -10,6 +10,8 @@
  
  Programing started: 02/02/2013 at 14:08
  
+ 
+ 
  */
 
 //declarations of librarys
@@ -185,7 +187,7 @@ void loop()
  
   setBacklight();
     
-  Serial.print(menuPosX);
+  Serial.print(menuPosX); //the position in the menu, used for testing
   Serial.print(",");
   Serial.println(menuPosY); 
   delay(1); //protective delay to prevent over running the serial buffer and used to time iterations

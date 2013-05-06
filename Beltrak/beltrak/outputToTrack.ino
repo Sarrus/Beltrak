@@ -24,7 +24,7 @@ void outputToTrack()
   //apply the reverser to the train
   if (reverser)
   {
-    digitalWrite(pinDIR, HIGH);
+    digitalWrite(pinDIR, HIGH);//if this is high the train travels backwards
   }
   else
   {

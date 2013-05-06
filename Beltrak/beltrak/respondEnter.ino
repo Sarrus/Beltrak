@@ -39,11 +39,11 @@ void respondEnter(int menuX, int menuY) //the function takes in the current menu
         }
   }
   
-  if(menuX == 2 && menuY == 8)
+  if(menuX == 2 && menuY == 8) //this is the backlight position in the menu
   {
     if(backlight == 2)
-      backlight = 1;
+      backlight = 1; //1 switches the backlight off
     else
-      backlight = 2;
+      backlight = 2; //2 switches it on
   }
 }

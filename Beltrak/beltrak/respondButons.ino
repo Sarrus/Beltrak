@@ -71,7 +71,7 @@ void respondButons()
       {
         if(!butonCaptured)
         {
-          respondEnter(menuPosX, menuPosY);
+          respondEnter(menuPosX, menuPosY); //calls the function for responding to enter being pressed
           butonCaptured = true;
         }
         break;
